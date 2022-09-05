@@ -57,14 +57,6 @@ contract RociERC20 is IERC20Minimal {
         return true;
     }
 
-    function approve(address spender, uint256 amount)
-        public override
-        returns (bool)
-    {
-        allowance[msg.sender][spender] = amount;
-        emit Approval(msg.sender, spender, amount);
-        return true;
-    }
 
     function transferFrom(address from, address to, uint256 amount, address _contract) 
         public override
@@ -92,4 +84,14 @@ contract RociERC20 is IERC20Minimal {
         emit Transfer(from, to, amount);
         return true;
     }
+    
+        function approve(address spender, uint256 amount)
+        public override
+        returns (bool)
+    {
+        allowance[msg.sender][spender] = amount;
+        emit Approval(msg.sender, spender, amount);
+        return true;
+    }
+
 }
